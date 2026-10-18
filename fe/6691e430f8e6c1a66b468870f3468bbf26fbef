@@ -1,0 +1,20 @@
+README.md
+  s_1e46200dfbc383::t_edc6d1807f99f5 6-7
+  s_1e46200dfbc383::t_7f89b349c18cd6 119-120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fe6691e430f8e6c1a66b468870f3468bbf26fbef",
+  "prompts": {},
+  "sessions": {
+    "s_1e46200dfbc383": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "8f391381-ff97-4532-bc66-91b23c0c6808",
+        "model": "auto-smart"
+      },
+      "human_author": "himanshu.arora <himanshu.arora@telekom-digital.com>"
+    }
+  }
+}
