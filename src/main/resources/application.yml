@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: virtual-card-platform
+  datasource:
+    # In-memory H2 by default so the project runs with zero setup. Use the "postgres" profile for PostgreSQL.
+    url: jdbc:h2:mem:cards;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;LOCK_TIMEOUT=10000
+    username: sa
+    password: ""
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none          # schema is owned by Flyway migrations
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logging:
+  pattern:
+    level: "%5p [%X{requestId:-}]"
+
+app:
+  card:
+    expiration-days: 365      # 0 = cards never expire
+  rate-limit:
+    enabled: true
+    capacity: 60              # burst size per client IP
+    refill-per-second: 30     # sustained requests/second per client IP
+  expiry:
+    enabled: true
+    fixed-delay-ms: 60000

@@ -1,0 +1,12 @@
+# Optional: run the app against PostgreSQL instead of the in-memory H2 default.
+#   docker compose up -d
+#   mvn spring-boot:run -Dspring-boot.run.profiles=postgres
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cards
+      POSTGRES_USER: cards
+      POSTGRES_PASSWORD: cards
+    ports:
+      - "5432:5432"
