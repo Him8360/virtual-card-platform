@@ -185,10 +185,3 @@ New or less familiar pieces were Testcontainers with `@ServiceConnection`, Flywa
 from the official reference documentation, built the smallest working example, and then wrote a test that would fail if
 my understanding was wrong (for example, the Postgres test exists specifically because H2 does not reproduce the
 aborted-transaction behaviour that drives the retry in `createCard`).
-
-## Packaging for submission
-
-```bash
-zip -r ../virtual-card-platform.zip . -x 'target/*' '__MACOSX/*' '*.DS_Store' '.idea/*'
-unzip -l ../virtual-card-platform.zip | grep -E 'target/|__MACOSX' || echo "clean"
-```
