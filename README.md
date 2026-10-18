@@ -3,6 +3,8 @@
 Spring Boot 3 / Java 17 backend for issuing virtual cards, topping them up, spending from them and
 tracking transactions, designed to stay correct under heavy concurrent use.
 
+Creating a card, spending, and topping up all require an `Idempotency-Key` header. Repeating the same key and body returns the original result and does not move money again.
+
 ## Run it
 
 Requirements: JDK 17+, Maven 3.9+. Docker is optional (only for the PostgreSQL integration tests and the Postgres profile).
@@ -113,6 +115,8 @@ so there is no rounding and no overflow path.
 scheduled job only tidies stored state. A single bulk `UPDATE` makes the job safe to run on several instances.
 
 **Schema by Flyway**, `ddl-auto=none`: the schema (including the CHECK constraints) is reviewed, versioned SQL.
+
+**JPA, not jOOQ.** The model is one card aggregate and a few queries; `SELECT ... FOR UPDATE` and the expiry `UPDATE` are already explicit in Spring Data, and the rules live on `Card`. jOOQ would earn its place if the SQL outgrew the domain.
 
 **Domain rules inside the entity** (`Card`), so they are unit-testable without Spring or a database.
 
