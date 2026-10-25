@@ -126,7 +126,7 @@ public class CardService {
     }
 
     private Outcome<TransactionResponse> apply(UUID cardId, String key, BigDecimal rawAmount, TransactionType type) {
-         BigDecimal amount = Money.normalize(rawAmount);
+        BigDecimal amount = Money.normalize(rawAmount);
         Card card = lockCard(cardId);                       // 404 if missing; serialises this card from here on
         String scope = type + ":" + cardId + ":" + key;
         String hash = Hashing.sha256Hex(type + "|" + cardId + "|" + amount.toPlainString());

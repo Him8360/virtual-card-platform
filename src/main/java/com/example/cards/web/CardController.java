@@ -46,6 +46,7 @@ public class CardController {
         return replayHeader(response, outcome).body(outcome.body());
     }
 
+
     @GetMapping("/{cardId}")
     public CardResponse get(@PathVariable UUID cardId) {
         return service.getCard(cardId);
