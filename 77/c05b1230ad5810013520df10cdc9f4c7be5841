@@ -1,0 +1,16 @@
+src/main/java/com/example/cards/web/CardController.java
+  h_9d107a4bfe78e4 49
+src/main/java/com/example/cards/service/CardService.java
+  h_9d107a4bfe78e4 129
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "77c05b1230ad5810013520df10cdc9f4c7be5841",
+  "prompts": {},
+  "humans": {
+    "h_9d107a4bfe78e4": {
+      "author": "himanshu.arora <himanshu.arora@telekom-digital.com>"
+    }
+  }
+}
